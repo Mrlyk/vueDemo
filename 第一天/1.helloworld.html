@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vueDemo</title>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--双括号-小胡子语法-->
+    <!--可以直接放表达式和赋值-->
+    {{msg==2?1:0}}
+    {{msg2}}
+    <input v-model="msg2">
+</div>
+
+<script type="text/javascript">
+    // 引入后vue会自带一个Vue构造函数
+    // vue的指令都以v-开头，valu属性默认情况下会被vue忽略掉 selected checked都没有意义
+    let vm = new Vue({
+        el: '#app', //挂载渲染部分，相当于querySelector
+        data: {   //data中的数据会被vm所代理
+            msg: 'hello world', //可以通过vm.msg来访问
+            msg2:'test'
+        }
+    });
+
+</script>
+
+</body>
+</html>
