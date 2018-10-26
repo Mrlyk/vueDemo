@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e127708-f441-4f0e-af59-7f2bea9fb442" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.arow-fn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.arr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.helloworld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/第一天内容笔记.md" afterDir="false" />
+    <list default="true" id="3e127708-f441-4f0e-af59-7f2bea9fb442" name="Default" comment="第一天-数组的一些操作方法，箭头函数，vue安装介绍以及以前没注意过的vue特性">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="1.helloworld.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/第一天/1.helloworld.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="98">
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -211,16 +208,15 @@
       <option name="presentableId" value="Default" />
       <updated>1540520754855</updated>
       <workItem from="1540520756542" duration="2866000" />
-      <workItem from="1540524009769" duration="12937000" />
+      <workItem from="1540524009769" duration="13435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15803000" />
+    <option name="totallyTimeSpent" value="16301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="555" y="0" width="885" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -232,7 +228,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32969698" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32969698" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32969698" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.24792407" />
@@ -256,6 +252,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一天-数组的一些操作方法，箭头函数，vue安装介绍以及以前没注意过的vue特性" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一天-数组的一些操作方法，箭头函数，vue安装介绍以及以前没注意过的vue特性" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
@@ -328,8 +328,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/第一天/1.helloworld.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="98">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
