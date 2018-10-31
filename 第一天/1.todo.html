@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+</head>
+<body>
+<div id="app">
+    <!--也可以给keyup绑定修饰符，如下面给keyup绑定一个.enter修饰
+    那么按到回车的时候就会触发事件-->
+    <input type="text" v-model="val" @keyup.enter="add">
+    <ul>
+        <!--注意v-for的参数顺序不能反,第一个永远是值,不能是索引或其他-->
+        <li v-for="(nums,index) in arr">{{nums}}
+        <button @click="deleteLi(index)">删除</button></li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            val:'',
+            arr:[],
+        },
+        methods:{
+            //vue自动传入了事件源，只要没被参数覆盖,只要直接写出来即可调用
+            add(eve){
+                // if(eve.keyCode== 13){
+                    this.arr.push(this.val);
+                    this.val='';
+                // }
+            },
+            deleteLi(indexLi){
+                this.arr = this.arr.filter((item,index)=>index!=indexLi);
+            }
+        }
+    })
+</script>
+</body>
+</html>

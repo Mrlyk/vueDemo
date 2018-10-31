@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--以前：拼字符串innerHTML-->
+<!--vue提供了v-for 解决循环问题-->
+<div id="app">
+    <ul>
+        <!--要循坏谁就在谁里面加v-for，这里不是给ul加，是循坏的li-->
+        <!--for of和for in功能相同都是迭代数组，for of是es6语法，比for in更好
+        这里用in更好，用of有的情况下编译器会报错-->
+        <li v-for="(item,index) in fruits">{{index+1}}.{{item.name}}
+            <ul>
+                <!--这里的item就是上面的item，也是一个对象，里面有第二个数组，形成二维数组-->
+                <!--子对象的调用索引不存在时就会往父对象上找，所以父对象和子对象用相同的索引名-->
+                <li v-for="(fColor,childIndex) in item.color">{{index+1}}.{{childIndex+1}}{{fColor}}</li>
+            </ul>
+        </li>
+    </ul>
+    <!--也可以循环数字、字符串和对象-->
+    <span v-for="num in 30">{{num}}-</span>
+    <span v-for="num in 'aaaa'">{{num}}-</span>
+</div>
+
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            fruits:[
+                {name:'香蕉',color:['green','yellow']},
+                {name:'苹果',color:['red','green','yellow']},
+                {name:'西瓜',color:['pink']}
+                ]
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据响应式</title>
+</head>
+<body>
+<div id="app">
+    {{a.school}}
+    {{arr}}
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    //vue会循环data中的数据（数据劫持） 依次的增加getter和setter
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{school:''}, //1、直接声明初始化对象
+            arr:[1,3,2]
+        }
+    });
+    //使用变量时 先要初始化，否则新加的属性不会导致页面刷新
+    vm.$set(vm.a,'school',1); //2、此方法可以给对象添加响应式的数据变化
+
+    //3、替换原对象
+    vm.a={school:'aaa',age:'22'}
+
+    //数组
+    //只改变数组的某一项是监控不到的，也不能使用改变数组长度的方法
+    // 错误:vm.arr[0] =100 ; vm.arr.length -=2 ;
+    //改变数组用：变异方法(改变原数组的方法):pop push shift unshift sort resrve splice
+    vm.arr.reverse();
+    //不使用变异的方法，可以覆盖原有的数组
+    vm.arr = vm.arr.map(item=>item*3)
+</script>
+</body>
+</html>

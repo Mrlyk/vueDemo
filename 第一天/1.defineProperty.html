@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>探究vue的数据绑定</title>
+</head>
+<body>
+<!--探究vue的数据绑定-->
+<input type="text" id="input">
+
+<script type="text/javascript">
+
+    // 自定义对象的属性
+    let obj = {};
+    let tmp = {};
+    Object.defineProperty(obj,'name',{
+        // value:1,
+        // configurable:true, //控制是否可删除对象属性
+        // writable:true, //控制是否可写
+        // enumerable:false, //是否可枚举对象属性
+
+        get(){ //es5方法，取obj值时触发
+            return tmp["name"];
+        },
+        set(val){ //给obj赋值时触发
+            tmp["name"]=val;
+            console.log('test');
+            input.value=obj.name; //将对象的值赋给输入框
+        }
+    });
+    input.value=obj.name;//页面加载时会调用get方法，会把tmp的值赋给value
+
+    //加入input输入事件
+    input.addEventListener('input',function () { //等待输入框变化
+        obj.name = this.value  //给对象赋值时调用set
+    })
+</script>
+
+
+</body>
+</html>

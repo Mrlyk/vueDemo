@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>vueDemo</title>
-    <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+
 </head>
 <body>
 <div id="app">
@@ -12,8 +12,14 @@
     {{msg==2?1:0}}
     {{msg2}}
     <input v-model="msg2">
+    <!--下面这种写法和双括号的区别在于下面这种会渲染完之后才插入，中看不能再有数据，会被覆盖掉-->
+    <div v-once v-text="msg2"></div>
+    <!--v-html 一定注意要是可信任的html-->
+    <div v-html="p"></div>
+
 </div>
 
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
 <script type="text/javascript">
     // 引入后vue会自带一个Vue构造函数
     // vue的指令都以v-开头，valu属性默认情况下会被vue忽略掉 selected checked都没有意义
@@ -21,7 +27,8 @@
         el: '#app', //挂载渲染部分，相当于querySelector
         data: {   //data中的数据会被vm所代理
             msg: 'hello world', //可以通过vm.msg来访问
-            msg2:'test'
+            msg2:'test',
+            p:'<p style="color: red">hello</p>'
         }
     });
 

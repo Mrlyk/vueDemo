@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+<!--所有绑定的方法都是window上的-->
+<!-- v-on === @ -->
+<div id="app">
+    <!--vue中监听事件,传参才加括号，不传不要加-->
+    <!--因为vue会自动传入事件源(这里的事件源MouseEvent)，如果要传参需要手动传入$event属性
+    否则参数会把事件流覆盖掉,当然如果只需要参数值不需要监听事件流可以不传入$event属性-->
+    <div @mousedown="fn($event,1)">点击</div>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+let vm = new Vue({  //这个vm一般被称为根实例
+    el:'#app',
+    data:{
+
+    },
+    //data和methods总的数据全部会被放到vm上，所以要注意名字不能冲突
+    //methods中的this指向的都是根实例,所以this.a==vm.a;
+    methods:{
+        fn(e){
+            alert(1);
+            console.log(e);
+        }
+    }
+
+})
+
+</script>
+</body>
+</html>
