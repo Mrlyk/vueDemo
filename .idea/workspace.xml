@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e127708-f441-4f0e-af59-7f2bea9fb442" name="Default" comment="第一天-数组的一些操作方法，箭头函数，vue安装介绍以及以前没注意过的vue特性">
-      <change afterPath="$PROJECT_DIR$/第一天/1.defineProperty.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.reactivity.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.todo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第一天/1.v-for.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第三天/3.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/第五天/5.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.Promiseajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.carts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.checkbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/2.select.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/第二天/第二天内容笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/第一天/1.helloworld.html" beforeDir="false" afterPath="$PROJECT_DIR$/第一天/1.helloworld.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/第一天/第一天内容笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/第一天/第一天内容笔记.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,23 +24,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="第一天内容笔记.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
+      <file leaf-file-name="2.cart.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/第二天/2.cart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2.promise.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/第二天/2.promise.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2.Promiseajax.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/第二天/2.Promiseajax.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="第二天内容笔记.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/第二天/第二天内容笔记.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="648">
-                <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+              <first_editor relative-caret-position="375">
+                <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.todo.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/第一天/1.todo.html">
+      <file leaf-file-name="2.carts.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/第二天/2.carts.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            <state relative-caret-position="350">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -48,14 +77,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>of</find>
+      <find>this</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -76,10 +106,20 @@
         <option value="$PROJECT_DIR$/第一天/1.defineProperty.html" />
         <option value="$PROJECT_DIR$/第一天/1.helloworld.html" />
         <option value="$PROJECT_DIR$/第一天/1.reactivity.html" />
-        <option value="$PROJECT_DIR$/第一天/第一天内容笔记.md" />
-        <option value="$PROJECT_DIR$/第一天/1.event.html" />
         <option value="$PROJECT_DIR$/第一天/1.v-for.html" />
         <option value="$PROJECT_DIR$/第一天/1.todo.html" />
+        <option value="$PROJECT_DIR$/第一天/1.event.html" />
+        <option value="$PROJECT_DIR$/第二天/2.checkedbox.html" />
+        <option value="$PROJECT_DIR$/第二天/2.checkbox.html" />
+        <option value="$PROJECT_DIR$/第一天/第一天内容笔记.md" />
+        <option value="$PROJECT_DIR$/第二天/2.select.html" />
+        <option value="$PROJECT_DIR$/第二天/2.carts.json" />
+        <option value="$PROJECT_DIR$/第二天/2.promise.html" />
+        <option value="$PROJECT_DIR$/第二天/第二天内容笔记.md" />
+        <option value="$PROJECT_DIR$/第二天/2.promise.js" />
+        <option value="$PROJECT_DIR$/第二天/2.ajax.js" />
+        <option value="$PROJECT_DIR$/第二天/2.Promiseajax.js" />
+        <option value="$PROJECT_DIR$/第二天/2.cart.html" />
       </list>
     </option>
   </component>
@@ -110,10 +150,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="556" />
-    <option name="y" value="23" />
-    <option name="width" value="884" />
-    <option name="height" value="800" />
+    <option name="x" value="722" />
+    <option name="width" value="718" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -123,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,17 +173,7 @@
             <path>
               <item name="vueDemo" type="b2602c69:ProjectViewProjectNode" />
               <item name="vueDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="第一天" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vueDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vueDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="第三天" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vueDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vueDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="第五天" type="462c0819:PsiDirectoryNode" />
+              <item name="第二天" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -151,7 +181,6 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.1.defineProperty.html">
+  <component name="RunManager" selected="Node.js.2.Promiseajax.js">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -203,7 +232,8 @@
     <configuration name="1.defineProperty.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vueDemo/第一天/1.defineProperty.html" />
     <configuration name="1.helloworld.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vueDemo/第一天/1.helloworld.html" />
     <configuration name="1.arow-fn.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/第一天/1.arow-fn.js" working-dir="$PROJECT_DIR$/第一天" />
-    <configuration name="1.arr.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="1.arr.js" working-dir="$PROJECT_DIR$/第一天" />
+    <configuration name="2.Promiseajax.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="2.Promiseajax.js" working-dir="$PROJECT_DIR$/第二天" />
+    <configuration name="2.promise.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="2.promise.js" working-dir="$PROJECT_DIR$/第二天" />
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -227,17 +257,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Node.js.1.arr.js" />
       <item itemvalue="Node.js.1.arow-fn.js" />
       <item itemvalue="JavaScript Debug.1.helloworld.html" />
       <item itemvalue="JavaScript Debug.1.defineProperty.html" />
+      <item itemvalue="Node.js.2.promise.js" />
+      <item itemvalue="Node.js.2.Promiseajax.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.2.Promiseajax.js" />
+        <item itemvalue="Node.js.2.promise.js" />
         <item itemvalue="JavaScript Debug.1.defineProperty.html" />
         <item itemvalue="JavaScript Debug.1.helloworld.html" />
         <item itemvalue="Node.js.1.arow-fn.js" />
-        <item itemvalue="Node.js.1.arr.js" />
       </list>
     </recent_temporary>
   </component>
@@ -253,15 +285,16 @@
       <updated>1540520754855</updated>
       <workItem from="1540520756542" duration="2866000" />
       <workItem from="1540524009769" duration="15451000" />
-      <workItem from="1540967447613" duration="11800000" />
+      <workItem from="1540967447613" duration="11958000" />
+      <workItem from="1541032368889" duration="15190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30117000" />
+    <option name="totallyTimeSpent" value="45465000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="643" y="0" width="797" height="900" extended-state="6" />
+    <frame x="572" y="0" width="868" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -269,15 +302,15 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50066227" side_tool="true" weight="0.32969698" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32980132" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32969698" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32969698" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49933776" weight="0.32969698" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3112583" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.30992737" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -304,6 +337,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="第一天-数组的一些操作方法，箭头函数，vue安装介绍以及以前没注意过的vue特性" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="850">
+            <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第一天/1.todo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -349,22 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue/dist/vue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/第三天/3.router.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -388,40 +422,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/第一天/1.1reactivity.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/第一天/1.arow-fn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/第一天/1.1reactivity.html" />
     <entry file="file://$PROJECT_DIR$/第一天/1.reactivity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="648">
-            <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/第一天/1.event.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -441,8 +446,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/第一天/1.todo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="242">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第一天/1.event.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第一天/第一天内容笔记.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="124">
+            <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.checkbox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.select.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vue/dist/vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/axios/dist/axios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.carts.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.promise.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5043">
+          <caret line="222" column="19" selection-start-line="222" selection-start-column="12" selection-end-line="222" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/第二天内容笔记.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第一天/1.arow-fn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.Promiseajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.promise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/第二天/2.cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
         </state>
       </provider>
     </entry>

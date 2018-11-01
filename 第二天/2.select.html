@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉选单</title>
+    <style>
+        /*解决闪烁问题，即未渲染完成的视图不显示，现在不常用*/
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--下拉选单的value会绑定在select上而不是option上-->
+<div id="app" v-cloak>
+    <!--如果select是多选框multiple,数据类型则是数组类型-->
+    <select v-model="val" multiple>
+        <!--如果value属性不写，默认取的是option中的值a,b,c-->
+        <option value="" disabled>请选择</option>
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+    </select>
+    {{val}}
+    <br/>
+    <!--单选框-->
+    <input type="radio" v-model="sex" value="1">男
+    <input type="radio" v-model="sex" value="2">女
+    {{sex}}
+</div>
+
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            val:[],
+            sex:'',
+        }
+    })
+
+    //原生js获取select选中的值的写法
+    // let val1=document.getElementById('te');
+    // val1.onchange = function () {
+    //     alert(this.value)
+    // }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <!--bootstrap 栅格化布局-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="app">
+
+</div>
+
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<!--axios基于promise(异步执行的对象-承诺一段时间后一定会执行的对象就是promise对象)实现
+封装相当于2.promiseajax里的封装方法，可以看一看
+-->
+<script type="text/javascript" src="../node_modules/axios/dist/axios.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        //专门用来发送ajax的方法，ajax方法都在created里调用
+        created(){ //数据初始化完成，钩子函数
+            //promise 解决回调问题
+            this.getData();
+        },
+        data:{
+            products:[]
+        },
+        methods:{
+            //then里面有两个函数作为参数:
+            //第一个函数参数是success时调用，默认参数是返回成功的json对象,包含数据和其他一些配置、状态信息
+            //第二个则是error时调用,默认参数是返回到错误信息，包含状态码等一些错误信息
+            //注意这里如果不用箭头函数直接用this，this虽然在对象中，但是实际上是function这个全局函数进行的普通调用，this指向的是windows
+            //所以这里要使用箭头函数，箭头函数的this继承自其父级
+
+            getData(){  //初始化方法
+                axios.get('./2.carts.json').then((res)=>{
+                        //数据都在返回对象的data属性里
+                        return this.products=res.data;
+                    },
+                    (error)=>{
+                        return error;
+                    })
+            }
+        }
+    })
+</script>
+</body>
+</html>

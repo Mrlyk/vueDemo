@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框</title>
+</head>
+<body>
+<div id="app">
+    <!--如果是复选框且只有一个的时候，v-model绑定后会把绑定的值转换为
+    boolean类型赋给选框-->
+    <input type="checkbox" v-model="a">
+    {{a}}
+    <br/>
+
+    <!--当有多个复选框时，将绑定的数据设为数组类型，vue会将选中数据的value
+    自动放入数组-->
+    爱好:<input type="checkbox" v-model="b" value="aa">游泳
+    <input type="checkbox" v-model="b" value="睡觉">睡觉
+    <input type="checkbox" v-model="b" value="电影">电影
+    {{b}}
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:1,
+            b:[]
+        }
+    })
+</script>
+</body>
+</html>
