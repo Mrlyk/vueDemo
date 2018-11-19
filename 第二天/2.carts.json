@@ -3,18 +3,18 @@
     "id": "888",
     "isSelected": true,
     "productImg": "https://img10.360buyimg.com/cms/s80x80_jfs/t1/4040/20/3771/34215/5b9a598eE455d70a0/9006d872d513a8c4.jpg",
-    "productName": "华为（HUAWEI）WS5102 1200M真双频智能无线路由器 光纤高速wifi四天线穿墙 信号稳定增强",
+    "productName": "华为（HUAWEI）WS5102 1200M真双频智能无线路由器1",
     "productInfo": "颜色：【WiFi双频1200M】",
-    "productPrice": 149,
-    "productCount": 3
+    "productPrice": 149.50,
+    "productCount": 1
   },
   {
     "id": "999",
-    "isSelected": true,
+    "isSelected": false,
     "productImg": "https://img10.360buyimg.com/cms/s80x80_jfs/t1/4040/20/3771/34215/5b9a598eE455d70a0/9006d872d513a8c4.jpg",
-    "productName": "华为（HUAWEI）WS5102 1200M真双频智能无线路由器 光纤高速wifi四天线穿墙 信号稳定增强",
+    "productName": "华为（HUAWEI）WS5102 1200M真双频智能无线路由器2",
     "productInfo": "颜色：【WiFi双频1200M】",
     "productPrice": 149,
-    "productCount": 3
+    "productCount": 1
   }
 ]

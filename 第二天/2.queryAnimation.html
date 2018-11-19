@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for动画，使用animate库</title>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css">
+    <style type="text/css">
+        #app >div{
+            width: 100px;
+            height: 100px;
+            background-color: #888888;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="arr.pop()">移除</button>
+    <br/>
+    <!--放入-->
+    <!--<input v-model="scanf1" @keydown.enter="scanfIn">-->
+    <!--<br/>-->
+    <!--过滤-->
+    <!--<input v-model="scanf2" @keydown.enter="scanfOut">-->
+    <input v-model="query">
+
+    <!--把动画库写入-->
+    <!--对一组元素使用vue动画的时候需要使用transition-group,且子元素必须要有key来区分-->
+    <transition-group enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight">
+        <!--v-for如果key不变则不会有dom的进入出去的渲染操作，所以key最好不同-->
+        <div v-for="(a,i) in newArr" :key="i">
+            {{a}}
+        </div>
+    </transition-group>
+
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+            arr:[1,2,3,4,5],
+            query:'',
+            scanf1:'',
+            scanf2:'',
+        },
+        methods:{
+            // scanfIn(){
+            //     this.arr.push(this.scanf1);
+            //     this.scanf='';
+            // },
+            // scanfOut(){
+            //     this.arr=this.arr.filter((item,i)=>item!=this.scanf2);
+            //     this.scanf='';
+            // }
+        },
+    //    使用计算属性,要有返回值
+        computed:{
+            newArr(){
+                return this.arr.filter(item=>item==this.query);
+
+            }
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ buy(function cook(val) {
     console.log(val);
 });
 console.log('------------');
-//promise 就是来解决回调问题的，不许要向上面写的这么复杂
+//promise 就是来解决回调问题的，不需要向上面写的这么复杂
 //promise 有三个状态：成功  失败  等待pending
 //  Promise 是es6中自带的一个新特性，在es6中是一个构造函数
 //resolve,reject是promise自带的两个状态，开始函数是在pending状态

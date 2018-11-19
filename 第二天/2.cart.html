@@ -5,12 +5,85 @@
     <title>购物车</title>
     <!--bootstrap 栅格化布局-->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        caption {
+            caption-side: top;
+        }
+    </style>
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
+    <!--bootstrap 引入bootstrap自带的默认表格样式-->
+    <!--bootstrap会把一个盒子默认分成12份-->
+    <!--bootstrap的container样式会占据整个网页中间的10列，左右各空出一列-->
+    <!--bootstrap的默认颜色 default 灰色 success 绿色 danger 红色 waring 黄色 info 浅蓝色 primary 蓝色-->
 
+    <div class="container-fluid">
+        <!--这里面的每一行又会又12列-->
+        <div class="row">
+            <table class="table table-hover table-bordered">
+                <!--caption -表格标题 必须紧接在table后面-->
+                <caption class="h2 text-primary">购物车</caption>
+                <thead>
+                <tr>
+                    <!--click事件反应的是当时点击时的状态，比如当时是false，那么点击的瞬间返回的值就是flase-->
+                    <!--所以这里要用change事件，反应点击之后的变更状态-->
+                    <th>全选<input type="checkbox" v-model="all" @change="checkAll"></th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--注意循环的是一行一行的，不是其中一个单元格的，不要把循环放在了td上-->
+                <tr v-for="(product,index) in products">
+                    <td><input type="checkbox" v-model="product.isSelected" @change="checkOne"></td>
+                    <!--定义图片宽高也可以使用:width=""这样使用v-bind动态绑定数据-->
+                    <td><img :src="product.productImg" alt="图片" :title="product.productInfo"> {{product.productName}}
+                    </td>
+                    <td>{{product.productPrice|toFixed(2)}}</td>
+                    <!--lazy修饰符，表单失去焦点时更新-->
+                    <td><input type="number" v-model.lazy="product.productCount" min="1"></td>
+                    <!--过滤器 - 原数据不变的情况下，只改变显示的效果 管道符 |-->
+                    <td>{{(product.productCount*product.productPrice) | toFixed(2)}}</td>
+                    <!--传入的参数是对应的-->
+
+                    <!--两个对象进行比较，比较的是内存地址，{}==={} 这样是两个不同地址的对象，结果是false-->
+                    <!--传索引的删除-->
+                    <!--<td><button class="btn btn-danger" @click="removeTr(index)">删除</button> </td>-->
+                    <!--传对象的删除，更好，对象进行比较-->
+                    <td>
+                        <button class="btn btn-danger" @click="removeTr(product)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot >
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>总价:</td>
+
+                    <!--放在这sum会在数据一变化的时候就执行，算出最新的结果-->
+                    <!--缺点是不会缓存，页面上任何数据一变都会计算这个总价，造成性能浪费-->
+                    <td>{{sum() | toFixed(2)}}</td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 </div>
-
 
 <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
 <!--axios基于promise(异步执行的对象-承诺一段时间后一定会执行的对象就是promise对象)实现
@@ -19,30 +92,74 @@
 <script type="text/javascript" src="../node_modules/axios/dist/axios.js"></script>
 <script type="text/javascript">
     let vm = new Vue({
-        el:'#app',
+        el: '#app',
         //专门用来发送ajax的方法，ajax方法都在created里调用
-        created(){ //数据初始化完成，钩子函数
+        created() { //数据初始化完成，钩子函数
             //promise 解决回调问题
             this.getData();
         },
-        data:{
-            products:[]
+        mounted() {
+            console.log(this.products);
         },
-        methods:{
+
+        data: {
+            products: [],
+            all: false,  //全选
+
+        },
+        //自定义过滤器 ,特别注意：这里的this指向的是window
+        filters: {
+            //input是过滤器自带的第一个参数(名字可以自己定义)，管道符前面是什么，input就是什么
+            //第二个参数是我们自己传入的参数
+            toFixed(input, param) {
+                // return input;  //返回本身
+                return `¥${input.toFixed(param)}`;
+            }
+        },
+
+        methods: {
             //then里面有两个函数作为参数:
             //第一个函数参数是success时调用，默认参数是返回成功的json对象,包含数据和其他一些配置、状态信息
             //第二个则是error时调用,默认参数是返回到错误信息，包含状态码等一些错误信息
             //注意这里如果不用箭头函数直接用this，this虽然在对象中，但是实际上是function这个全局函数进行的普通调用，this指向的是windows
             //所以这里要使用箭头函数，箭头函数的this继承自其父级
 
-            getData(){  //初始化方法
-                axios.get('./2.carts.json').then((res)=>{
+            getData() {  //初始化方法
+                axios.get('./2.carts.json').then((res) => {
                         //数据都在返回对象的data属性里
-                        return this.products=res.data;
+                        return this.products = res.data;
+                        this.checkOne(); //在拿到数据之后判断是否全选
                     },
-                    (error)=>{
+                    (error) => {
                         return error;
                     })
+            },
+
+            //splice会直接改变原数组，所以不返回数据也会改变,第一个参数是下标，第二个是要删除的长度
+            //splice还会造成索引错乱的问题，且性能没有filter好
+            // removeTr(i){ //i是当前项的索引,第一种用索引，不是很好
+            //     this.products.splice(i,1);
+            // },
+
+            //filter会返回一个新数组而不改变原数组，所以不要忘了把这个新数组返回回去
+            removeTr(i) { //i是当前项这个对象,使用数组的filter方法过滤掉这一项，比较好
+                this.products = this.products.filter(item => item != i);
+            },
+
+            checkAll() {
+                //多用自带的迭代遍历方法，更好
+                this.products.forEach(item => item.isSelected = this.all);
+
+            },
+            checkOne() {
+                //用every方法，如果找到某项的值是false就返回false并停止迭代，否则返回true
+                this.all = this.products.every(item => item.isSelected);
+            },
+            //求总价，设置初始值为0
+            sum(){
+                return this.products.reduce((prev,next)=>{
+                    return prev+next.productPrice * next.productCount;
+                },0)
             }
         }
     })

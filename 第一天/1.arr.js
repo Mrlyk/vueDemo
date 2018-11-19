@@ -40,8 +40,8 @@ console.log("-------filter");
 //回调函数返回什么，这一项就是什么
 //更新某些元素时使用
 let arr1=arr.map(function (item) {
-    //反引号``，tab上面的，是es6中的模版字符串
-    //遇到变量用${}取值
+    //反引号``，tab上面的，是es6中的模版字符串,如果用es5的写法就要'<li>'+item+'</li>'，很麻烦
+    //在模版字符串中,遇到变量用${}取值
     return `<li>${item}</li>`
 });
 console.log(arr1.join(''));
@@ -68,9 +68,10 @@ console.log(result1);
 console.log("-------some");
 //7）every 找到false后停止，返回false
 
-//8）reduce 收敛 4个参数 返回的是叠加后的结果 原数组不变，回调函数返回的结果
+//8）reduce 收敛 返回的是叠加后的结果(变为一个数) 原数组不变，回调函数四个参数，返回的结果
 //第一次prev代表的是数组的第一项，next是数组的第二项
 //第二次prev是undefined，next是数组的第三项  ,（如果第一次没有返回值的话）
+//reduce还有第二个参数initialValue，用来设置初始值，如果传入的第一个prev对象不是需要的值的话可以设置初始值
 arr.reduce(function (prev,next,item,index) {
     console.log(prev,next);
     return next;   //本次的返回值会作为下次的prev

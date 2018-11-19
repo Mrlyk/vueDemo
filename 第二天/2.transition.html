@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画过度效果（记得区别于animation）</title>
+    <style type="text/css">
+        #app >div{
+            width: 100px;
+            height: 100px;
+            background-color: #888888;
+        }
+
+        /*动画一般是这三个状态*/
+        /*1、进入之前的状态*/
+        .myTran-enter{
+            opcity:0;
+        }
+        /*2、进入时的状态一直到进入后*/
+        .myTran-enter-active{
+            transition: 1s linear;
+            -webkit-transition: 1s linear;
+        }
+        /*3、离开时的状态，一直到离开后*/
+        .myTran-leave-active{
+            opacity: 0;
+            transition: 1s linear;
+            -webkit-transition: 1s linear;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="flag=!flag">显示/隐藏</button>
+    <!--v-if操作的是dom，v-show操作的是样式，意思是说v-show的值是false dom也存在只是被隐藏了(display:none)，依然会被渲染-->
+    <!--对于需要频繁隐藏显示的使用show，否则使用if-->
+    <!--if不通过，他内部的指令则都不会执行-->
+    <!--只有dom从显示到隐藏或隐藏到显示（v-for也有比如少了或多了数据） 才能使用vue的动画-->
+    <!--transition vue自带的组件-->
+    <transition name="myTran">
+        <div v-show="flag">
+            test!test!
+        </div>
+    </transition>
+
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

@@ -7,6 +7,9 @@
 </head>
 <body>
 <div id="app">
+    <!--模版语法中的函数会在数据改变时就触发-->
+    {{f()}}
+    <input v-model="a">
     <!--双括号-小胡子语法-->
     <!--可以直接放表达式和赋值-->
     {{msg==2?1:0}}
@@ -28,7 +31,15 @@
         data: {   //data中的数据会被vm所代理
             msg: 'hello world', //可以通过vm.msg来访问
             msg2:'test',
-            p:'<p style="color: red">hello</p>'
+            p:'<p style="color: red">hello</p>',
+            a:'2',
+            b:'3',
+        },
+        methods:{
+            f(){
+                console.log(this);
+                return this.a*this.b;
+            }
         }
     });
 

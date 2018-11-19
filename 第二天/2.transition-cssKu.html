@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画过度效果，使用animate库</title>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css">
+    <style type="text/css">
+        #app >div{
+            width: 100px;
+            height: 100px;
+            background-color: #888888;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="flag=!flag">显示/隐藏</button>
+    <!--把动画库写入-->
+    <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight">
+        <div v-show="flag">
+            test!test!
+        </div>
+    </transition>
+
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

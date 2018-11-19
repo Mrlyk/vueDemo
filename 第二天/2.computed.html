@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed</title>
+    <!--bootstrap 栅格化布局-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        caption {
+            caption-side: top;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+
+    <div class="container-fluid">
+        <!--这里面的每一行又会又12列-->
+        <div class="row">
+            <table class="table table-hover table-bordered">
+                <!--caption -表格标题 必须紧接在table后面-->
+                <caption class="h2 text-primary">购物车</caption>
+                <thead>
+                <tr>
+                    <th>全选<input type="checkbox" v-model="all"></th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--注意循环的是一行一行的，不是其中一个单元格的，不要把循环放在了td上-->
+                <tr v-for="(product,index) in products">
+                    <td><input type="checkbox" v-model="product.isSelected"></td>
+                    <!--定义图片宽高也可以使用:width=""这样使用v-bind动态绑定数据-->
+                    <td><img :src="product.productImg" alt="图片" :title="product.productInfo"> {{product.productName}}
+                    </td>
+                    <td>{{product.productPrice|toFixed(2)}}</td>
+                    <!--lazy修饰符，表单失去焦点时更新-->
+                    <td><input type="number" v-model.lazy="product.productCount" min="1"></td>
+                    <!--过滤器 - 原数据不变的情况下，只改变显示的效果 管道符 |-->
+                    <td>{{(product.productCount*product.productPrice) | toFixed(2)}}</td>
+                    <!--传入的参数是对应的-->
+
+                    <td>
+                        <button class="btn btn-danger" @click="removeTr(product)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>总价:</td>
+                    <!--放在这sum会在数据一变化的时候就执行，算出最新的可能-->
+                    <!--<td>{{sum() | toFixed(2)}}</td>-->
+                    <td>{{sum |toFixed(2)}}</td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../node_modules/axios/dist/axios.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        //专门用来发送ajax的方法，ajax方法都在created里调用
+        created() { //数据初始化完成，钩子函数
+            //promise 解决回调问题
+            this.getData();
+        },
+        data: {
+            products: [],
+
+        },
+        //自定义过滤器 ,特别注意：这里的this指向的是window
+        filters: {
+
+            toFixed(input, param) {
+                // return input;  //返回本身
+                return `¥${input.toFixed(param)}`;
+            }
+        },
+
+        methods: {
+            getData() {  //初始化方法
+                axios.get('./2.carts.json').then((res) => {
+                        //数据都在返回对象的data属性里
+                        return this.products = res.data;
+                        this.checkOne(); //在拿到数据之后判断是否全选
+                    },
+                    (error) => {
+                        return error;
+                    })
+            },
+
+            //filter会返回一个新数组而不改变原数组，所以不要忘了把这个新数组返回回去
+            removeTr(i) { //i是当前项这个对象,使用数组的filter方法过滤掉这一项，比较好
+                this.products = this.products.filter(item => item != i);
+            },
+
+            // checkAll() {
+            //     //多用自带的迭代遍历方法，更好
+            //     this.products.forEach(item => item.isSelected = this.all);
+            //
+            // },
+            // checkOne() {
+            //     //用every方法，如果找到某项的值是false就返回false并停止迭代，否则返回true
+            //     this.all = this.products.every(item => item.isSelected);
+            // },
+            //求总价，设置初始值为0
+            // sum(){
+            //     return this.products.reduce((prev,next)=>{
+            //         return prev+next.productPrice * next.productCount;
+            //     },0)
+            // }
+        },
+        //当点击全选时，要影响子项点变化，当页面刷新时获取全选值，是根据下面当选择项 '计算' 出的结果
+        //放在computed中最后也会被放在vm上，所以不能和methods以及data中变量、方法重名
+        computed: {
+            //all应该是一个算出来的对象,计算属性会基于他的依赖，即这里products内的值变化时立刻重新计算，比watch性能更好
+            all: {
+                get() {  //get和set指向this实例,v-model时读数据会调用get方法，当数据更改时会调用set方法，参考object.defineProperty
+                    return this.products.every(item => item.isSelected);
+                },
+                set(val) {  //自带的参数val指的是get返回来的值true or false
+                    return this.products.forEach(item => item.isSelected = val);
+                }
+            },
+            // sum:{   //sum的结果会被缓存，如果依赖的数据无变化就不会重新执行
+            //     get(){
+            //         return this.products.reduce((prev,next)=>{
+            //             if(!next.isSelected) return prev; //如果下一项的select未被选中，那么就直接返回上一次的和而不加当前项
+            //             return prev+next.productPrice * next.productCount;
+            //         },0)
+            //     }
+            // }
+
+            //如果直接写成函数的形式，则默认调用的是get方法
+            sum() {   //sum的结果会被缓存，如果依赖的数据无变化就不会重新执行
+                return this.products.reduce((prev, next) => {
+                    if (!next.isSelected) return prev; //如果下一项的select未被选中，那么就直接返回上一次的和而不加当前项
+                    return prev + next.productPrice * next.productCount;
+                }, 0)
+            }
+
+        }
+    })
+</script>
+</body>
+</html>
