@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+<div id="app">
+    全选<input type="checkbox" v-model="checked">
+    <br/>
+    <input type="checkbox" v-for="item in products" v-model="item.isSelected">
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            products: [
+                {
+                    isSelected: true
+                }, {
+                    isSelected: true
+                }
+            ]
+        },
+        computed: {
+            checked: {
+                //every找到false就停止并返回false，即只要有一个false就返回false
+                //some找到true后就停止并返回true，即只要有一个true就返回true
+                //返回什么值就会给checked赋什么值
+                get() {
+                    return this.products.every(item => item.isSelected);
+                },
+                //val是给checked赋值之后传过来的
+                set(val) {
+                    this.products.forEach(item=>item.isSelected=val);
+                }
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

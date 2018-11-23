@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听属性</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="a">
+    {{msg}}
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</body>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            a: '',
+            msg: '',
+        },
+        watch: {
+            //谁变化了就watch谁,即监听谁,只有值变化的时候才会触发，比如1变了还是1则不会触发
+            //有两个参数，第一个是a变化后的新值，第二个是上一次的值
+            //需要异步时可以用watch，其他时候computed更好
+            a(newVal, oldVal) {
+                console.log(`newVal=${newVal}, oldVal=${oldVal}`)
+                if (newVal.length > 3) {
+                    this.msg = 'more';
+                } else {
+                    this.msg = 'less';
+                }
+            }
+        },
+
+        methods: {},
+
+    })
+</script>
+</html>
+
+<!--
+computed: {
+            //如果计算属性没有get只有set会有警告，并且写了set方法之后，当前值就不会被赋予其他结果，所以不能只写set不写get
+            a:{
+                // get(){
+                //     return this.msg;
+                // },
+                // set(val){
+                //     this.msg = val;
+                // }
+            }
+
+        },
+-->

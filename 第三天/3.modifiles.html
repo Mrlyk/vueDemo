@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修饰符</title>
+</head>
+<body>
+
+<div id="app">
+    <!--注意修饰符的顺序，在前面的先触发，可能会影响到后面的修饰符-->
+    <div @click="parent" style="background-color: #888888;height: 100px">
+        parent
+        <div @click.once="child" style="background-color: #999999">
+            child
+            <div @click="grandSon">
+                grandSon
+            </div>
+        </div>
+        <a href="http://www.baidu.com" @click.prevent="parent">prevent</a>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            parent(){
+                console.log('parent');
+            },
+            child(){
+                console.log('child');
+            },
+            grandSon(e){
+                console.log('grandSon');
+
+                //原来的阻止冒泡的方法
+                // e.stopPropagation();
+                // e.cancelBubble=true;
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>

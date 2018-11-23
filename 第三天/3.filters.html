@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filters过滤器</title>
+</head>
+<body>
+<!--过滤器有使用范围-->
+<div id="app1">
+    {{'this' | myFil}}
+</div>
+<div id="app2">
+    {{'that' | myFil}}
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    //把过滤器挂在Vue的全局方法上就可以全局调用，记得放在所有vue实例的前面
+    Vue.filter('myFil',data=>{
+        return data + 'test';
+    })
+    new Vue({
+        el: '#app1',
+        // filters: {
+        //     myFil(msg) {
+        //         return msg + 'test';
+        //     }
+        // }
+
+    });
+    new Vue({
+        el: '#app2',
+
+    })
+
+</script>
+</body>
+</html>

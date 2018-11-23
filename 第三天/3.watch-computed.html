@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch or computed?</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="a">
+    {{name}}
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</body>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            a: '',
+            fName: 'LL',
+            lName: 'KK',
+            name: '',
+        },
+        //对于任何复杂逻辑都应该使用计算属性，而异步时则需要使用watch
+        //使用监听属性，当不是a当变化时，比如我改变了fName，结果不会变化
+        // watch: {
+        //     a(n,o){
+        //         this.name=this.fName + n +this.lName;
+        //     }
+        // },
+        //而使用计算属性，fName变化时，name因为依赖于fName，结果就会重新计算发生变化
+        //计算属性和方法当区别，计算属性基于依赖进行缓存，而方法每次都会重新计算，浪费性能
+        computed: {
+            // name(){
+            //     return this.fName+this.a+this.lName;
+            // }
+        },
+        methods: {},
+
+    });
+    //    手动调用watch属性
+    vm.$watch('a', (n, o) => {
+            vm.name = vm.fName + n + vm.lName;
+        }
+    )
+</script>
+</html>
