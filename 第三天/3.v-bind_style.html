@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定</title>
+    <style type="text/css">
+        .x{
+            background-color: lightblue;
+            height: 100px;
+            width: 100px;
+        }
+        .y{
+            font-size: 18px;
+        }
+        .z{
+            color: pink;
+        }
+        .t{
+            border: 1px solid black;
+        }
+
+        .numberColor{
+            background-color: #888888;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--使用驼峰命名，属性是字符串格式-->
+    <div style="font-size: 30px" :style="{backgroundColor:'red'}">
+        测试行内样式
+    </div>
+    <!--也可像class一样，使用数组，同时绑定多个样式-->
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    // v-bind控制样式，第一种方式是对象，第二种是数组
+    let vm = new Vue({
+        el: '#app',
+        data:{
+            flag:1,
+            flag2:1,
+
+            class1:'z',
+            class2:'t',
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>
+</html>

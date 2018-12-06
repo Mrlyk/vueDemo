@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo应用</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+
+        .del {
+            color: deepskyblue;
+            text-decoration: line-through;
+            -webkit-text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <!--导航-->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            TodoList
+        </a>
+    </nav>
+
+    <!--内容-->
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header bg-warning text-danger h6">
+                        你有{{num}}件事Todo
+                        <input class="form-control" @keyup.enter="insertIn" v-model="input">
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills nav-justified">
+                            <a class="nav-item nav-link" href="#" @click="all">全部任务</a>
+                            <a class="nav-item nav-link" href="#" @click="finish">已完成</a>
+                            <a class="nav-item nav-link" href="#" @click="process">未完成</a>
+
+                        </ul>
+
+                        <ul class="list-group">
+                            <li class="list-group-item" @dblclick="edit($event,item.title,item)"
+                                v-for="(item,i) in allList" :class="{del:item.isChecked}">
+                                <!--当前点的项和我循坏到到不相等时，这个输入框显示-->
+                                <span v-show="curObj != item">
+                                    <input type="checkbox" v-model="item.isChecked"> {{item.title}}
+                                </span>
+                                <!--当前项目和循坏到的项目相同时，该输入框显示-->
+                                <!--autofocus h5自动获取焦点，但是只会获得其中一个输入框的焦点-->
+                                <input ref="ccc" v-show="curObj == item" type="text" v-model="item.title"
+                                       @keyup.enter="defaultOp" @blur="defaultOp" v-focus="curObj == item">
+
+                                <button @click="deleteItem(item)" class="float-right btn-danger btn-xs">&bigotimes;
+                                </button>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../node_modules/axios/dist/axios.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            input: '',
+            myList: [],
+            flag: true,
+            allList: [
+                {
+                    isChecked: true,
+                    title: '睡觉',
+                }, {
+                    isChecked: false,
+                    title: '吃饭',
+                }, {
+                    isChecked: false,
+                    title: '学习',
+                },
+            ],
+            finishList: [],
+            processList: [],
+            curObj: '',
+
+        },
+        mounted() {
+            //从本地存储中加载数据
+            // if(localStorage.getItem('myList')){
+            //     this.allList = JSON.parse(localStorage.getItem('myList'));
+            // }
+            this.allList = JSON.parse(localStorage.getItem('myList')) || this.allList;
+        },
+        //自定指令,如果指令名是v-focus-abc这种比较长的，在指令中应该使用驼峰命名focusAbc
+        directives: {
+            focus(el, i) {
+                //如果值为true
+                if (i.value) {
+                    el.focus(); //focus()获取焦点方法
+                }
+            }
+        },
+        computed: {
+            num() {
+                let count = 0;
+                this.allList.forEach(item => {
+                    if (!item.isChecked) {
+                        count++;
+                    }
+                })
+                return count;
+            }
+        },
+        //监控，数据改变时存入localStorage
+        watch: {
+            //watch默认只监控一层的数据变化，比如我这里是个对象数组，如果给最外层的数组添加改变项
+            //可以监控到，但是如果改变数组中某一项的对象中的数据则监控不到
+            allList: {   //所以可以使用深度监控，监控也变成了对象
+                handler() {  //之前直接写函数就相当于只写了handler
+
+                    //注意localStorage会把要存的值自动调用toString方法,toString方法会将对象转换成[obj objName]
+                    //所以直接用getItem取出来会变成"[obj obj]",而取不到真实的数据
+                    //所以存入的时候需要使用JSON方法将其先转换为JSON格式，JSON格式是一种数据交换的文本格式
+                    //等到需要用的时候再将用JSON.parse()解析为原始数据 -----sessionStorage的操作方法也相同
+                    localStorage.setItem('myList', JSON.stringify(this.allList));
+                },
+                deep: true,
+            }
+        },
+        methods: {
+            //删除项
+            deleteItem(i) {
+                //对象
+                this.allList = this.allList.filter((item, index) => {
+                    return item != i;
+                });
+            },
+            //添加项
+            insertIn() {
+                if (this.input) {
+                    this.allList.push({
+                        isChecked: false,
+                        title: this.input,
+                    });
+                    this.input = '';
+                }
+
+            },
+
+            edit(e, title, obj) {
+                console.log(e);  //点击的元素
+                this.curObj = obj; //记住当前的点击项目
+            },
+
+            //点击非文本框内自动还原
+            defaultOp() {
+                this.curObj = '';
+            },
+
+            all() {
+
+            },
+            finish() {
+
+            },
+            process() {
+
+            },
+        }
+    })
+</script>
+</body>
+</html>

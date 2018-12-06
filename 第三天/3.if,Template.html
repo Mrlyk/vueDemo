@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+<div id="app">
+    <!--template是vue提供的无意义标签，用来包裹元素用的，v-show不支持该标签-->
+    <template v-if="flag">
+        <div>测试成功</div>
+        <div>测试成功</div>
+        <div>测试成功</div>
+        <div>测试成功</div>
+    </template>
+    <div v-else>测试'失败'</div>
+
+    <template v-if="cut">
+        <!--如果不绑定key：默认情况下在切换dom时，相同的结构会被服用，虽然效率高，但是不绑定key相同内容不会被替换-->
+        <label>注册</label>
+        <input key="1">
+
+    </template>
+
+    <template v-else>
+        <label>登录</label>
+        <input key="2">
+
+    </template>
+    <br/>
+    <button @click="change">点击</button>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            cut: true,
+            flag: false,
+        },
+        methods: {
+            change() {
+                this.cut = !this.cut;
+            }
+        }
+    })
+</script>
+</body>
+</html>

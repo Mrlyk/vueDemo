@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue指令</title>
+    <style type="text/css">
+        .a{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #888888;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--并没有v-color这个指令，但是我们可以自定义-->
+    <!--修饰符（'13')在对象的modifiers中，写了之后13在其中就为true-->
+    <button v-color.13="flag">变色</button>
+    <input v-model="flag">
+    <div v-drag class="a"></div>
+    <div v-drag class="a"></div>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        //自定指令，v-可以不写，名字要相同，可以间接的操作dom
+        directives:{
+            color(el,i){  //指令绑定的谁，el指代的就是谁,el是自定义名称可以改
+                console.log(el); //el:<button>变色</button>
+                console.log(i); //i:绑定的对象的信息，也包括指令名等
+                el.style.color = i.value;
+
+            },
+            //块可拖拽
+            drag(el){
+                el.onmousedown = function (e) {
+                    //e.pageX是鼠标距离浏览器左侧的距离
+                    //e.offsetX是鼠标距离div左侧的距离
+                    //disx就是盒子左侧距离浏览器左侧的距离
+                    var disx = e.pageX - e.offsetX;
+                    console.log(e.x);
+                    var disy = e.pageY - e.offsetY;
+                    //再给鼠标移动绑定一个事件
+                    document.onmousemove =function(e){
+                        console.log(e);
+                        el.style.left = e.pageX - disx +'px';
+                        el.style.top = e.pageY - disy +'px';
+                    }
+
+                    document.onmouseup = function (e) {
+                        //鼠标抬起时清空事件
+                        document.onmouseup = document.onmousemove = null;
+                    }
+                    e.preventDefault(); //阻止其他默认事件
+                }
+            }
+        },
+        el:'#app',
+        data:{
+            flag:'red',
+        }
+    })
+</script>
+
+</body>
+</html>

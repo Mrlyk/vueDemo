@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定</title>
+    <style type="text/css">
+        .x{
+            background-color: lightblue;
+            height: 100px;
+            width: 100px;
+        }
+        .y{
+            font-size: 18px;
+        }
+        .z{
+            color: pink;
+        }
+        .t{
+            border: 1px solid black;
+        }
+
+        .numberColor{
+            background-color: #888888;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--v-bind绑定的样式和普通的class样式不冲突-->
+    <!--优先级与普通样式的优先级处理方式相同-->
+    <!--用对象的方式，当flag==1时，z生效，否则不生效，可与用来动态绑定样式，可以添加多个对象-->
+    <div class="x y" :class="{z:flag==1,t:flag2==1}">
+        测试1
+    </div>
+    <!--class1是哪个样式要在data中声明-->
+    <div class="x y" :class="[class1,{t:flag2==1}]">
+        测试2
+    </div>
+
+    <div v-for="(item,i) in 10" :class="{numberColor:i%2!=0}">
+        item:{{item}}
+    </div>
+</div>
+
+<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    // v-bind控制样式，第一种方式是对象，第二种是数组
+    let vm = new Vue({
+        el: '#app',
+        data:{
+            flag:1,
+            flag2:1,
+
+            class1:'z',
+            class2:'t',
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>
+</html>
